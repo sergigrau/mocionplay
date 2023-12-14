@@ -1,0 +1,12 @@
+idle ahmed (1 - 244)
+
+walk ahmed ( 250 - 273)
+
+talk sitting ahmed (278 - 392)
+
+idle biblioteca ahmed (395 - 519)
+
+idle sitting ahmed (520 - 626)
+
+talking ahmed (-292 - -1)
+
