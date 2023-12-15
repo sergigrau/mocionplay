@@ -1,0 +1,7 @@
+idle - 0 - 196 
+idle sitting - 200 - 302
+talk sitting - 303 - 1359
+walk - 1361 - 1384
+guitar play - 1390 - 1592
+talking - 1687 - 1875
+
