@@ -1,0 +1,12 @@
+Elements 3D:
+	usar assets asset store
+Escena general del joc:
+	Acabar observatorio
+Col·lisions, destrucció i potenciadors:
+	Crear animacions amb cinemachines i sistema de dialegs
+IGU i pantalla inicial:
+	Acabar IGU, activació ulleres amb shaders
+Musica de fons i impactes:
+	SFX
+Estructura de dades:
+	Guardar dialegs in sqlite

@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 45ecc3b9aae150b40bd849da2a98d240
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - sca: {instanceID: 0}
+  - aim: {instanceID: 0}
+  - action: {instanceID: 0}
+  - glass: {instanceID: 0}
+  - cutScene: {instanceID: 0}
+  - cinematicCamera: {instanceID: 0}
+  - mainCamera: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
