@@ -1,0 +1,679 @@
+:: StoryTitle
+Mocions
+
+
+:: StoryData
+{
+  "ifid": "AF039D49-71FD-4C86-94AB-41E087D8F8C5",
+  "format": "Harlowe",
+  "format-version": "3.3.4",
+  "start": "Inicio",
+  "zoom": 1
+}
+
+
+:: AndarPorLaCalle {"position":"1775,700","size":"100,100"}
+Vas andando por la calle en dirección al supermercado, y te encuentras con otra vecina, Irene, que está tumbada fuera en una silla con respaldo bajo, descansando. ¿Te paras a hablar con ella?
+
+[[Sí->Irene-InicioDiálogo]]
+[[No->ExplorarPueblo]] 
+
+
+
+:: BuscandoGafas {"position":"800,250","size":"100,100"}
+Vas explorando la casa.
+¿Encuentras las gafas en el baúl?
+
+(set: $Fase0 to true)
+[[Sí->GafasEncontradas]]
+[[Todavía no->MiraElReloj]]
+
+
+
+:: ContadorRetrasos {"position":"250,850","size":"100,100"}
+Como sabes por las normas internas de la facultad, los retrasos se registran, para poder motivar a los alumnos a lograr buenos resultados académicos. Te han contado otra falta.
+Transcurre 1 día de juego, hasta [[la mañana siguiente->Inicio]]
+
+
+
+:: CuantasVecesTarde {"position":"725,700","size":"100,100"}
+Has llegado tarde. No sé si te acuerdas de cuántas veces has llegado tarde últimamente...¿No será ya la tercera vez?
+
+[[Sí, efectivamente es la tercera vez->TutoraHablaConSamuel]]
+[[No, soy distraído pero no tanto...->ContadorRetrasos]]
+
+
+
+:: EntraEnClase {"position":"125,700","size":"100,100"}
+Entras en clase. Transcurre 1 día de juego, hasta la [[mañana siguiente->Inicio]].
+
+
+:: Exploración {"position":"1000,200","size":"100,100"}
+Vas explorando la casa. Tienes algo de tiempo pero de vez en cuando vas [[mirando el reloj->MiraElReloj]]
+
+
+:: ExplorarPueblo {"position":"1325,675","size":"100,100"}
+Puedes explorar un poco el pueblo. ¿Qué haces?
+
+[[Sigo en esta calle]]
+[[Voy al supermercado]]
+[[Voy a la iglesia]]
+[[Voy al estanque]]
+[[Voy a la biblioteca]]
+[[Voy al solar]]
+[[Voy a la facultad]]
+
+
+:: GafasEncontradas {"position":"650,375","size":"100,100"}
+Explorando las estancias, te das cuenta que en el viejo baúl del abuelo hay unas gafas extrañas. Te gustan, pero probándolas solo ves negro. ¡Qué raro, unas gafas que no permitan ver nada! Pero te las pones en la mochila, por si puedes chulear un poco con amigos.
+(set: $GafasEnMochila to true)
+
+¿Qué haces?
+[[Salgo a fuera->Salir a la calle]] 
+[[Sigo explorando->BuscandoGafas]] 
+
+
+
+:: GameOver {"position":"700,1050","size":"100,100"}
+Has llegado tarde demasiadas veces. En una cinemática machinima, la tutora Julia te dice con dolor que debido a los numerosos retrasos en clase, te dan una semana fuera de la facultad para que reflexiones si quieres continuar. Sabes las normas académicas, pero te has confiado demasiado.
+
+''(text-colour:red)[GAME OVER]''
+
+
+:: Ignacio-1rGafas {"position":"950,1425","size":"100,100"}
+(text-colour:red)[A IMPLEMENTAR EN LA FASE 1]
+
+
+:: Ignacio-AbuelosPresentes {"position":"250,1850","size":"100,100"}
+S-¿Tú crees que están aquí? A veces cuando miro las habitaciones y objetos suyos de casa, pienso en ellos. 
+I-¿Te imaginas que todas las coincidencias que han formado este universo sean casualidades, y que somos aparentemente los primeros seres con conciencia, pero que después de muertos no hay nada y nada tiene sentido? Me resulta muy difícil creerlo, la verdad...
+
+[[¿Por qué debería haber vida más allá?->Ignacio-VidaMásAllá]]
+[[Claro, pero tú partes de la fe cristiana que lo dice->Ignacio-FeResurrección]]
+
+
+:: Ignacio-Ansiedad {"position":"1750,1900","size":"100,100"}
+S-Es verdad, no sé si es mi generación pero tenemos ansiedad por todo...
+I-Siempre ha ocurrido, pero es cierto que en el s.XXI los cambios tecnológicos, científicos y de mentalidad han sido tan rápidos que como humanos necesitamos puntos de referencia. ¿Qué puntos de referencia tienes tú?
+
+[[Gran pregunta... lo pensaré->Ignacio-FinReferencias]]
+[[Hombre, sabes que no soy muy practicante...->Ignacio-Practicante]]
+[[Tú has sido uno de ellos durante este tiempo->Ignacio-PuntoReferencia]]
+
+
+
+:: Ignacio-Cuadro {"position":"1400,2550","size":"100,100"}
+S-Bonito cuadro
+I-¿Te gusta? Me alegro. ¿A dónde te lleva?
+
+[[Parece un árbol->Ignacio-CuadroÁrbol]]
+[[Me recuerda el símbolo del Yin y el Yang->Ignacio-CuadroYinYang]]
+[[No sé, la verdad->Ignacio-CuadroNoSé]]
+
+
+:: Ignacio-CuadroCuidado {"position":"1125,2925","size":"100,100"}
+S-Creo que transmite cuidado, como que la planta sobrevive gracias a las raíces, que crecen en una tierra del mismo color que la planta.
+I-Muy cierto, tienes buen ojo. Somos cuidados por los demás seres, y cuidándolos nos cuidamos. Todo el universo está conectado por dentro.
+
+[[Seguir conversando->Ignacio-InicioRamas]]
+[[Despedirse->Ignacio-Despedirse]]
+
+
+
+:: Ignacio-CuadroInterrelacionados {"position":"925,2950","size":"100,100"}
+S-Creo que me habla de que todos estamos interrelacionados.
+I-¡Muy buena! Pues sí, hoy día es un significado importante: el tren de vida que llevamos está arrasando la naturaleza entera. Si no nos comprendemos como un todo, es imposible sentir la importancia de los demás dentro de mí.
+
+[[Seguir conversando->Ignacio-InicioRamas]]
+[[Despedirse->Ignacio-Despedirse]]
+
+
+
+:: Ignacio-CuadroNoSé {"position":"1700,2700","size":"100,100"}
+S-Pues no sé, la verdad... no se me ocurre mucho más de lo que se ve.
+I-¡A los físicos les viene bien un poco de imaginación! Fíjate en los colores. Quien ha madurado es tierra para quien todavía echa raíces, el cual es cielo e inspiración para quien ya es árbol. Todos dependemos unos de otros: humanos, animales, plantas...
+
+[[Seguir conversando->Ignacio-InicioRamas]]
+[[Despedirse->Ignacio-Despedirse]]
+
+
+
+:: Ignacio-CuadroSignificado {"position":"1325,2825","size":"100,100"}
+S-¿Pero, qué significa?
+I-El arte tiene muchas interpretaciones. ¿Cuál te da a ti, al mirarlo?
+
+[[Creo que habla de todo interrelacionado->Ignacio-CuadroInterrelacionados]]
+[[Creo que transmite cuidado->Ignacio-CuadroCuidado]]
+[[Es un símbolo como el del suelo->Ignacio-CuadroSímbolo]]
+[[No me dice nada, pero me lo imagino tatuado en el brazo->IgnacioCuadroTatuado]]
+
+
+
+:: Ignacio-CuadroSímbolo {"position":"1075,3100","size":"100,100"}
+S-Es un símbolo, como el del suelo... ¿También identifica algo?
+I-Bueno, no todo el símbolo, pero el árbol con sus raíces sí que simboliza la vida y su cuidado... Los colores parecen decir que para vivir dependemos de lo que es distinto a nosotros. Lo material de lo espiritual y viceversa, por ejemplo.
+
+[[Seguir conversando->Ignacio-InicioRamas]]
+[[Despedirse->Ignacio-Despedirse]]
+
+
+
+:: Ignacio-CuadroYinYang {"position":"1375,2675","size":"100,100"}
+S-Me recuerda el símbolo del Yin y el Yang.
+I-¡Muy bien visto! Donde los polos contrarios están en harmonía e interrelación, el uno dentro del otro.
+
+[[¿Pero, qué significa?->Ignacio-CuadroSignificado]]
+[[¿Esto tiene que ver con la naturaleza?->IgnacioCuadroNaturaleza]]
+
+
+:: Ignacio-CuadroÁrbol {"position":"1650,3075","size":"100,100"}
+S-Parece un árbol, pero con raíces de color invertido.
+I-Sí, esto es lo que se ve. Pero el código de colores ayuda a ver más allá: el cielo de la planta son sus raíces, y la tierra donde se aguanta son sus ramas y hojas. Todas las criaturas de Dios, que la evolución ha ido desplegando, estamos unidas por dentro de un modo misterioso...
+
+[[Seguir conversando->Ignacio-InicioRamas]]
+[[Despedirse->Ignacio-Despedirse]]
+
+
+
+:: Ignacio-Despedirse {"position":"675,2000","size":"100,100"}
+S-Bueno, se me hace tarde, pero ha sido bueno charlar contigo un rato. Gracias, nos vemos pronto.
+I-Encantado Samuel, aquí estoy para lo que quieras. ¡Hasta pronto!
+
+[[Seguir explorando el pueblo->ExplorarPueblo]]
+
+
+:: Ignacio-DudasDios {"position":"2050,2250","size":"100,100"}
+S-Aunque... uno siempre se queda con dudas.
+I-Las dudas nos acompañarán siempre. ¿No te quedan también dudas de ciencia cuando estudias física? Yo también tengo dudas, Samuel. Pero creer en la ciencia y creer en Dios siempre vendrá acompañado de dudas. Esto nos hace audaces para investigar.
+
+[[Sí, supongo->Ignacio-Supongo]]
+
+
+:: Ignacio-Día {"position":"825,2250","size":"100,100"}
+S-¿Qué tal tendrás el día, atareado?
+I-Bueno, hay tareas, pero como las tiene cualquier persona que trabaja, sí. 
+
+[[¿A qué te dedicabas por las mañanas?->Ignacio-Mañanas]]
+[[Y por las tardes, ¿tienes un plan fijo?->Ignacio-Tardes]]
+[[¿Cuándo celebras la misa?->Ignacio-Misa]]
+[[Seguir conversando->Ignacio-InicioRamas]]
+[[Despedirse->Ignacio-Despedirse]]
+
+
+
+:: Ignacio-EncajarFísica {"position":"1750,2150","size":"100,100"}
+S-Aunque... me gustaría encajar mejor la física y la ciencia ahí. Tú siempre dices que la Biblia no debe entenderse como una historia literal, que son testimonios, pero el universo es muy distinto de lo que se cuenta en esas páginas.
+I-Esto lo sabemos hoy, cada época parte de su visión del universo. Imagínate un coro: cada una de las cantantes ha tenido una experiencia personal con la melodía que canta, y la entona con su propia voz. Lo importante no son las notas sobre el papel, sino la armonía que comunican.
+
+[[Sí supongo->Ignacio-Supongo]]
+
+
+:: Ignacio-EncontrarDios {"position":"1875,2175","size":"100,100"}
+S-...aunque no estoy seguro de cómo encontrarlo.
+I-Bueno, el camino se va encontrando andándolo. No es necesario saber cómo termina para empezar a recorrerlo.
+
+[[Sí, supongo...->Ignacio-Supongo]]
+
+
+:: Ignacio-FeResurrección {"position":"400,2075","size":"100,100"}
+S-Claro, pero tú partes de la fe cristiana que lo dice.
+I-Es verdad, pero la fe pone palabras a lo que ya intuimos, y no al revés. Los evangelios explican una experiencia que les supera, que Jesús vive. Pero hoy día también mucha gente ha sido salvada por su cirujano al límite de la muerte, y habla de unas mismas experiencias que parecen muy coherentes con la física cuántica, por ejemplo... Grietas distintas dejan entrever la misma luz.
+
+[[Seguir conversando->Ignacio-InicioRamas]]
+[[Despedirse->Ignacio-Despedirse]]
+
+
+
+:: Ignacio-FinReferencias {"position":"1575,2175","size":"100,100"}
+S-Gran pregunta...! Lo pensaré.
+I-Es algo que va a orientar siempre nuestra brújula interna hacia la buena dirección.
+
+[[Continuar conversando->Ignacio-InicioRamas]]
+[[Despedirse->Ignacio-Despedirse]]
+
+
+:: Ignacio-IglesiaLuz {"position":"1500,1925","size":"100,100"}
+S-Esta iglesia de hecho tiene más luz que otras que he conocido.
+I-Han caducado ya los tiempos de iglesias oscuras y tenebrosas. ¡El evangelio de Jesús es alegría y liberación! Por esto intento cuidar que este espacio sea agradable para la gente, que abra por dentro. 
+
+[[Continuar conversando->Ignacio-InicioRamas]]
+[[Despedirse->Ignacio-Despedirse]]
+
+
+:: Ignacio-InicioDiálogo {"position":"1250,1300","size":"100,100"}
+S-Hola Ignacio, ¿qué tal la mañana?
+I-¡Buenos días Samuel! Contento de verte. ¿Qué tal todo?
+
+[[Bien, gracias->Ignacio-InicioRamas]]
+
+
+
+:: Ignacio-InicioRamas {"position":"1350,1525","size":"100,100"}
+S- Bien, gracias
+
+[[No suele haber mucha gente, por aquí->Ignacio-PocaGente]]
+[[¿Qué tal tendrás el día, atareado?->Ignacio-Día]]
+[[Oye, ¿tú conoces al pobre que siempre pide en el supermercado?->Ignacio-Pobre]]
+[[¿Qué dijiste que significaba este símbolo del suelo?->Ignacio-Símbolo]]
+[[Bonito cuadro->Ignacio-Cuadro]]
+[[Este lugar me trae recuerdos...->Ignacio-Recuerdos]]
+(if:$F0_GafasExploradas is true and $Fase1 is true)[[[Ignacio, hay algo que quiero enseñarte->Ignacio-1rGafas]]]
+
+
+:: Ignacio-Mañanas {"position":"850,2475","size":"100,100"}
+S-¿A qué te dedicabas, por las mañanas? Me lo contaste un día...
+I-Pues mira, mi rutina empieza barriendo y limpiando la iglesia, y procuro reservar un tiempo de encuentro con Dios, leyendo el breviario. Luego voy a visitar enfermos por el pueblo toda la mañana. Hay mucha gente que se siente sola, aunque no se vea por las calles... 
+
+[[¿Y luego?->Ignacio-Día]]
+[[Seguir conversando->Ignacio-InicioRamas]]
+
+
+:: Ignacio-Misa {"position":"625,2450","size":"100,100"}
+ S-Y la misa, ¿solo la celebras los domingos?
+ I-No, también cada día, por la noche. Viene poca gente, pero es un bonito momento para recoger el día, lo hacemos muy familiar. ¡Bienvenido, si algún día quieres pasarte!
+ 
+ [[¿Otras tareas?->Ignacio-Día]]
+ [[Seguir conversando->Ignacio-InicioRamas]]
+ 
+ 
+
+
+:: Ignacio-MásAllá {"position":"450,1900","size":"100,100"}
+S-¿Cómo entiendes eso, Ignacio?
+I-Yo entiendo que estamos dentro de Dios como un feto dentro de su madre, o un pez dentro del océano. Si cruzamos la puerta de la muerte hacia el otro lado de lo que vemos, es lógico que tus abuelos, tú o yo, podamos seguir existiendo, pero de modo distinto.
+
+[[Seguir conversando->Ignacio-InicioRamas]]
+[[Despedirse->Ignacio-Despedirse]]
+
+
+
+:: Ignacio-Pobre {"position":"950,1750","size":"100,100"}
+S-Oye, ¿tú conoces al pobre que siempre pide en el supermercado?
+I-Sí claro, es Pedro, uno de los que viene por las tardes a trabajar al huerto conmigo. Prefiero que seas tú mismo quien le conozcas, pero no está en su mejor momento, una pena...
+
+[[Seguir conversando->Ignacio-InicioRamas]]
+[[Despedirse->Ignacio-Despedirse]]
+
+
+
+:: Ignacio-PocaGente {"position":"1625,1775","size":"100,100"}
+S-No suele haber mucha gente, por aquí...
+I-Es verdad, y esto lo hace un lugar especial de oasis. A veces hay estudiantes o gente del pueblo que se pasan un ratito, quieren un tiempo de silencio con Dios en sus vidas, o a veces compartir de lo que viven. Intento que puedan salir con más luz y oxígeno de como entraron. Hay mucho sufrimiento, ¿sabes?
+
+[[Esta iglesia de hecho tiene más luz que otras que he conocido->Ignacio-IglesiaLuz]]
+[[Es verdad, no sé si es mi generación pero tenemos ansiedad por todo->Ignacio-Ansiedad]]
+
+
+
+:: Ignacio-Practicante {"position":"1875,2025","size":"100,100"}
+S-Hombre, sabes que no soy muy practicante, pero cuando murió mi abuelo, de nuevo te planteas cosas ante la vida y el sentido de morir. ¿Te acuerdas lo que dijiste sobre la anécdota de mi madre, en el entierro? Es verdad, para mí un punto de referencia para navegar es Dios, aunque...
+I-¿Aunque?
+
+[[No estoy seguro de cómo encontrarlo->Ignacio-EncontrarDios]]
+[[Aunque uno siempre se queda con dudas->Ignacio-DudasDios]]
+[[Me gustaría encajar mejor la física ahí->Ignacio-EncajarFísica]]
+
+
+:: Ignacio-PuntoReferencia {"position":"1375,2150","size":"100,100"}
+S-Tú has sido uno de ellos durante este tiempo... Cuando finalmente murió mi abuelo, estuve destrozado un largo tiempo, como rebotado, se removieron muchas cosas, y tú estuviste ahí, escuchando mis quejas y acompañando con discreción. Así que no creo exagerar si digo eso...
+I-Gracias Samuel, es para mí un honor poder compartir con alguien lo que da sentido a mi vida.
+
+[[Seguir conversando->Ignacio-InicioRamas]]
+[[Despedirse->Ignacio-Despedirse]]
+
+
+
+:: Ignacio-Recuerdos {"position":"375,1675","size":"100,100"}
+S-Este lugar me trae recuerdos... de tristeza por el funeral del abuelo, pero también de paz y sentido: fue una celebración muy profunda y concurrida, y sentí una cercanía especial por dentro, como nunca había experimentado.
+I-Estoy seguro de ello, Samuel. Aquí en el pueblo mucha gente quería a tus abuelos. Ahora su presencia te acompaña de otro modo.
+
+[[¿Tú crees que están aquí?->Ignacio-AbuelosPresentes]]
+[[¿Cómo entiendes eso, Ignacio?->Ignacio-MásAllá]]
+
+
+
+:: Ignacio-Supongo {"position":"1525,2450","size":"100,100"}
+S- Sí, supongo que sí.
+
+[[Continuar conversando->Ignacio-InicioRamas]]
+[[Despedirse->Ignacio-Despedirse]]
+
+
+:: Ignacio-Símbolo {"position":"1200,1950","size":"100,100"}
+S-¿Qué dijiste que significaba el símbolo del suelo?
+I-Son dos peces, es un símbolo de los primeros cristianos. Cuando eran perseguidos y asesinados, era más fácil hablar "en clave", y la palabra pez en griego eran las siglas de "Jesucristo, Hijo de Dios, Salvador". Ha sido una identificación de quines seguimos su estilo.
+
+[[Seguir conversando->Ignacio-InicioRamas]]
+[[Despedirse->Ignacio-Despedirse]]
+
+
+
+:: Ignacio-Tardes {"position":"1050,2425","size":"100,100"}
+S-¿Y luego, por las tardes?
+I-Por la tarde seguimos trabajando en el huerto. ¿Te acuerdas que te hablé de las familias con pocos ingresos, que creamos el proyecto de huerto ecológico? Con la cara que ponen al llevarse para sus hijos unos tomates que hemos sudado juntos, ¡yo creo que lo compensa todo!
+S-Es verdad, ya no me acordaba. 
+
+[[¿Y luego?->Ignacio-Día]]
+[[Seguir conversando->Ignacio-InicioRamas]]
+
+
+
+:: Ignacio-VidaMásAllá {"position":"200,2075","size":"100,100"}
+S-Pero... todas las cosas mueren. ¿Por qué debería haber vida más allá?
+I-Es una buena pregunta, Samuel. (...) Cuando veo un amanecer o un atardecer, o contemplo un pájaro y lo escucho cantar, siento una presencia que nos une. Imagino que la misma que siente un bebé antes de nacer, tocando las paredes del útero de su madre... Ninguno de los dos sabemos cómo es el otro lado, pero el cariño se siente...
+
+[[Seguir conversando->Ignacio-InicioRamas]]
+[[Despedirse->Ignacio-Despedirse]]
+
+
+
+:: IgnacioCuadroNaturaleza {"position":"1475,3025","size":"100,100"}
+S-¿Pero el sentido tiene que ver con la naturaleza? En la ONG a veces hablamos de proyectos sobre árboles y bosques...
+I-Aquí el árbol representa toda vida, efectivamente. La naturaleza entera (arriba) necesita del cuidado (abajo), que depende de una tierra que es también naturaleza (del mismo color negro). El centro es cuidar a todo lo que existe.
+
+[[Seguir conversando->Ignacio-InicioRamas]]
+[[Despedirse->Ignacio-Despedirse]]
+
+
+
+:: IgnacioCuadroTatuado {"position":"1250,3075","size":"100,100"}
+S-No me dice nada, pero me lo imagino tatuado en el brazo
+I-¡Jajaja, tienes ojo de artista, Samuel! Pues sí, hay gente que se lo tatuaría para recordar cómo en la creación, este universo donde vivimos, todos nos ayudamos a todos para sobrevivir.
+
+[[Seguir conversando->Ignacio-InicioRamas]]
+[[Despedirse->Ignacio-Despedirse]]
+
+
+
+:: Inicio {"position":"850,100","size":"100,100"}
+Samuel aparece en su casa.
+Se ve un cronómetro de 15 minutos necesarios para llegar a clase.
+¿Es el primer día de la historia?
+[[Sí->BuscandoGafas]]
+[[No->Exploración]]
+
+
+
+
+:: Irene-InicioDiálogo {"position":"3175,750","size":"100,100"}
+
+
+
+:: Miguel-Abrazo {"position":"2925,1775","size":"100,100"}
+S-(...)
+(text-colour:red)[Le das un abrazo y lo encaja con ganas. Estás unos largos momentos así para consolarlo sin palabras]
+
+[[Agradecimiento->Miguel-AgradecimientoAbrazo]]
+
+
+:: Miguel-AgradecimientoAbrazo {"position":"2950,1925","size":"100,100"}
+M-Samuel, este abrazo me ha ayudado más que mil palabras. Necesitaba sacarlo, y compartir este momento con alguien... gracias hijo, mil gracias por este regalo.
+S-Todo mi apoyo, Miguel.
+
+[[Despedida->Miguel-Despido]]
+
+
+:: Miguel-BuscaréTiempo {"position":"2775,1325","size":"100,100"}
+S-Genial, lo buscaré. Creo que estás en baja forma: te falta más práctica...
+M-¡Cómo te atreves! ¡Menudo granuja! Jajaja... A la próxima partida te vas a enterar.
+
+[[Seguir conversando->Miguel-InicioRamas]]
+[[Despedirme->Miguel-Despido]]
+
+
+
+:: Miguel-Consolando {"position":"3200,2000","size":"100,100"}
+S-Lo siento Miguel... Ánimo, lo que podáis compartir será un tesoro que nunca olvidaréis.
+M-Ssssí... (sollozos). Gracias. (saluda en señal de adiós)
+
+[[Despedirse->ExplorarPueblo]]
+
+
+:: Miguel-Despido {"position":"2750,1675","size":"100,100"}
+S-Miguel, creo que tendré que irme. Espero que te vaya muy bien el día, gracias por este rato.
+M-Un encanto como siempre. Cuando quieras echamos otra partidita de cartas, ¿vale? ¡Adiós!
+
+[[Sigo en esta calle]] 
+[[Exploro otras partes del pueblo->ExplorarPueblo]] 
+
+
+:: Miguel-DudoConsejo {"position":"2000,1425","size":"100,100"}
+S-No sé si voy bien... tengo muchas dudas. ¿Tú, qué me aconsejas?
+M-Hombre, yo hace ya muchos años que estudié... pero mira, te cuento un secreto: yo cuando tengo dudas intento buscar silencio. Un sitio donde pueda sentir paz, sin el ruido de cada día, que no me deja ver claras las cosas. Si tienes un lugar así, prueba a ver...
+
+[[Miguel-Gracias]]
+[[Verdad, pero poco tiempo->Miguel-PocoTiempo]]
+
+
+:: Miguel-DuroPeroAdelante {"position":"2175,1425","size":"100,100"}
+S-Sigue siendo duro el curso, pero lo disfruto, creo que saldré adelante
+M-¡Así se habla! ¡Claro que sí! Pienso que el primer curso siempre debe ser el más duro. A medida que avances seguro que podrás ir escogiendo lo que aprendes, y que te costará menos. ¡Ánimo con ello!
+
+[[Gracias por el apoyo->Miguel-GraciasApoyo]]
+[[Ojalá fuera tan fácil->Miguel-OjaláDudas]]
+
+
+
+:: Miguel-Emocionado {"position":"3075,1675","size":"100,100"}
+M-(...)
+(text-colour:red)[Decides esperar, pero el pobre hombre estaba aguantando este drama dentro, y ahora lo saca emocionado.]
+
+[[Caramba, lo siento Miguel->Miguel-Consolando]]
+[[Alternativa, tengo prisa->Miguel-PrisaAnteEmoción]]
+[[Darle un abrazo->Miguel-Abrazo]]
+
+
+:: Miguel-GafasPuestas {"position":"3275,1750","size":"100,100"}
+(text-colour:red)[El jugador se pone las gafas y se ve a sí mismo dándole un abrazo a Miguel]
+(set: $OpciónDarAbrazo to true)
+[[Miguel-Emocionado]]
+
+
+:: Miguel-Gracias {"position":"1875,1525","size":"100,100"}
+S-Gracias, lo intentaré.
+
+[[Seguir conversando->Miguel-InicioRamas]] 
+[[Despedirte->Miguel-Despido]]
+
+
+:: Miguel-GraciasApoyo {"position":"2550,1675","size":"100,100"}
+S-Gracias Miguel, tú siempre me apoyas, ¡eres un incondicional!
+M-¡¡Jajaja!! ¿no te conté nunca que solía entrenar a chavales en el baloncesto? ¡Estoy acostumbrado a sacar motivación de debajo de las piedras!
+
+[[Seguir conversando con Miguel->Miguel-InicioRamas]] 
+[[Despedirme->Miguel-Despido]] 
+
+
+:: Miguel-HoyConPocoTiempo {"position":"2125,925","size":"100,100"}
+S-Hoy con poco tiempo, creo que voy a llegar tarde a clase
+M-Uy, no te quiero entretener, ve, ¡lo primero es lo primero!
+
+[[Dejas de conversar con Miguel->AndarPorLaCalle]]
+
+
+:: Miguel-InicioDiálogo {"position":"2475,825","size":"100,100"}
+S-Buenos días, Miguel.
+M-¡Buenos días Samuel! ¿Qué tal estás?
+
+[[Bien gracias->Miguel-InicioRamas]]
+[[Poco tiempo->Miguel-HoyConPocoTiempo]]
+
+
+
+
+
+:: Miguel-InicioRamas {"position":"2350,1025","size":"100,100"}
+S-Bien gracias. 
+
+[[Mañana soleada->Miguel-MañanaSoleada]]
+[[Jugado más a cartas->Miguel-JugadoCartas]]
+(if:$GafasEnMochila is true and $Miguel_F0_Resp1 is true and $Miguel_F0_Resp1 is true and $FASE1=true)[[[No tienes buena cara->Miguel-NoBuenaCara]]]
+
+
+
+:: Miguel-JugadoCartas {"position":"2525,1225","size":"100,100"}
+S-¿Y tú?¿Ya has jugado más a las cartas?
+M-¡Uuuyy, jaja! No tengo a valientes como tú que se animen a echar una partidita. Pero el otro día me diste una lección, me tocará remontar ¿eh?. Si un día te queda algo de tiempo ya me dirás, estaré encantado.
+(set: $Miguel_F0_Resp2 to true)
+
+[[Genial, lo buscaré->Miguel-BuscaréTiempo]]
+
+
+:: Miguel-LasDosCosas {"position":"2375,1750","size":"100,100"}
+S-En teoría. Pero es duro, y las dos cosas me gustan. No sé qué hacer.
+M-Hijo, pues tendrás que aclararte... A veces lleva su tiempo.
+
+[[Gracias->Miguel-Gracias]]
+
+
+
+:: Miguel-MañanaSoleada {"position":"2175,1250","size":"100,100"}
+S-Una mañana bien soleada, ¡da gusto salir por el pueblo!
+M-¡Cierto! Yo me doy un paseo un poco más tarde. Me gusta dar alguna vuelta por el bosquecito de al lado, la naturaleza me refresca. Y tú, ¿qué tal la física, tanto miedo que tenías?
+(set: $Miguel_F0_Resp1 to true)
+
+[[Duro, pero adelante->Miguel-DuroPeroAdelante]]
+[[Perdido, debo estudiar->Miguel-PerdidoEstudiar]]
+[[Dudo mucho, ¿consejos?->Miguel-DudoConsejo]]
+
+
+
+:: Miguel-MásEnONG {"position":"2175,1825","size":"100,100"}
+S-No sé, a veces me pregunto si dejar los estudios y meterme más en la ONG. ¿Tú qué piensas?
+M-Hijo, no sé qué decirte, eres tú quien debe tomar las decisiones. Acabas de empezar el grado, es normal que cueste. Pero eso de la ONG ¡no lo dejes, que te da ilusión para vivir!
+
+[[Gracias->Miguel-Gracias]]
+
+
+:: Miguel-NoBuenaCara {"position":"3125,1500","size":"100,100"}
+S-Oye Miguel, no te lo tomes mal, pero no te veo la buena cara de siempre, ¿te pasa algo?
+
+M-Mmmm... ya me decían siempre que era transparente como una ventana... Sí hijo, hay algo que no me deja tranquilo. (...) Mmmm... (Pausa). Pepita, ya sabes, mi mujer... que no se encuentra bien. El otro día recibió el informe de la última prueba, y los médicos dicen que tiene cáncer, y que no parece... (...)  (Se emociona).
+
+(text-colour:red)[(La mochila empieza a brillar. ¿Qué haces?)]
+
+[[Esperas a que termine de hablar->Miguel-Emocionado]]
+[[Abres la mochila->Miguel-PonerseGafas]]
+
+
+
+:: Miguel-OjaláDudas {"position":"2375,1600","size":"100,100"}
+S-Ojalá sea cierto, todavía no lo veo claro... todo es muy complejo. La naturaleza también me atrae, en la ONG compartimos mucho.
+M-Hay una buena pandilla, sí. A veces los veo subiendo desde la residencia. Algunos van hablando de proyectos interesantes, parece. Pero esto no quita que lo que estudias sea importante, ¿no?
+
+[[Me gusta más estar en la ONG->Miguel-MásEnONG]]
+[[Miguel-LasDosCosas]]
+
+
+
+:: Miguel-PerdidoEstudiar {"position":"2325,1450","size":"100,100"}
+S-Me siento un poco perdido. Imagino que debería estudiar más...
+M-Estudiar es necesario, sin duda. ¿Por qué no buscas a algún profesor que te ayude a ponerte al día?
+(Set: $Pregunta_TutorAcadémico to true)
+
+[[Gracias->Miguel-Gracias]]
+
+
+:: Miguel-PocoTiempo {"position":"2175,1625","size":"100,100"}
+
+
+
+:: Miguel-PonerseGafas {"position":"3375,1575","size":"100,100"}
+(text-colour:red)[(Abres la mochila y encuentras que las gafas también brillan. ¿Te las pones?)]
+
+[[Sí->Miguel-GafasPuestas]]
+[[No->Miguel-Emocionado]]
+
+
+:: Miguel-PrisaAnteEmoción {"position":"3075,1925","size":"100,100"}
+S-Miguel, ¿Quieres que vuelva por la tarde y lo hablamos tranquilamente? Es que ahora tengo un poco de prisa por el inicio de la clase, y creo que es importante, lo que quieres decirme...
+M-Sí, sí... ve, claro... (sollozos)
+
+[[Te vas->ExplorarPueblo]]
+
+
+:: Miguel_PocoTiempo {"position":"2075,1650","size":"100,100"}
+S-Es verdad, pero tengo poco tiempo.
+M-¡Estos jóvenes, nunca tienen tiempo para vivir la vida! Pero lo cierto es que *de prisa* no se saborean las cosas. Yo cuando no tengo tiempo al menos me acerco al lago, a mirar desde el banco algún pato. ¡La prisa se te va, viendo que el mundo sigue sin ti!
+
+[[Miguel-Gracias]]
+
+
+:: MiraElReloj {"position":"1000,375","size":"100,100"}
+Miras el reloj, pensando que quizás es tarde y debes ir a clase.
+¿Han transcurrido ya más de 10 minutos?
+
+[[Sí->Salir a la calle]]
+[[No->Exploración]]
+
+
+:: MiraElRelojFuera {"position":"1275,525","size":"100,100"}
+Se te ocurre, sin embargo, que quizás sea ya tarde para darte un paseo.
+Miras el reloj. ¿Es tarde para llegar puntual a clase?
+
+[[Sí, es tarde, se detiene el tiempo de juego->CuantasVecesTarde]] 
+[[No, todavía tengo tiempo de dar un paseo->ExplorarPueblo]]
+
+
+
+:: PuntualidadEnClase {"position":"450,650","size":"100,100"}
+Después de recorrer el pueblo, llegas a la facultad y entras a clase.
+¿Has llegado a tiempo, antes de los 15 minutos?
+
+[[Sí, a tiempo->EntraEnClase]]
+[[No, tarde->CuantasVecesTarde]]
+
+
+
+:: Salir a la calle {"position":"850,475","size":"100,100"}
+Te das cuenta que tienes prisa, tienes que salir lo más pronto que puedas. Un monólogo interno dice que debería salir ya o no tendrá tiempo de llegar.
+Una vez en la calle, ¿vas directamente a clase?
+
+[[Sí->PuntualidadEnClase]]
+[[No->MiraElRelojFuera]]
+
+
+
+:: Sigo en esta calle {"position":"1650,475","size":"100,100"}
+En la misma calle hay un vecino muy conocido, Miguel, que como cada mañana está barriendo el exterior de su casa. Miguel es un hombre recién jubilado. Siempre te saluda, tenéis muy buena relación. ¿Quieres hablar con él?
+
+[[Sí->Miguel-InicioDiálogo]]
+[[No->AndarPorLaCalle]] 
+
+
+
+:: TutoraHablaConSamuel {"position":"600,875","size":"100,100"}
+Se añade una cinemática machinima con su tutora Julia en el despacho de ella, preguntando qué ha pasado, y por qué no aprovecha suficiente esta oportunidad para estudiar.
+
+Pero, espera... ¿ya habías hablado con ella sobre esto?
+
+[[Sí, el otro día. De hecho ya es la tercera vez->GameOver]]
+[[Sí, otro día, pero espero que no se repita más->ContadorRetrasos]] 
+[[No, soy despistado pero no tanto->ContadorRetrasos]]
+
+
+:: Voy a la biblioteca {"position":"1450,925","size":"100,100"}
+
+
+
+:: Voy a la facultad {"position":"1325,1050","size":"100,100"}
+
+
+
+:: Voy a la iglesia {"position":"950,1000","size":"100,100"}
+Samuel va a encontrarse con Ignacio, que de buena mañana suele barrer y limpiar la iglesia, y luego leer el breviario de oraciones.
+
+[[Ignacio-InicioDiálogo]]
+
+
+
+:: Voy al estanque {"position":"1325,925","size":"100,100"}
+
+
+
+:: Voy al solar {"position":"1200,925","size":"100,100"}
+
+
+
+:: Voy al supermercado {"position":"1450,800","size":"100,100"}
+
