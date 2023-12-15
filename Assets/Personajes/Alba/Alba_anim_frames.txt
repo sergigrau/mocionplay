@@ -1,0 +1,7 @@
+Idle - 0, 142
+AirThrow - 143, 209
+DownThrow - 210, 344
+Jump - 346, 397
+Run - 399, 419
+RunJump - 421, 440
+Talk - 441, 804

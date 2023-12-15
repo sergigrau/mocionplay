@@ -1,9 +1,0 @@
-Idle: 0 - 200
-Search: 201 - 610 
-Talk: 611 - 771
-Tie(atar): 772 - 868
-Walk: 869 - 902
-WalkDog: 903 - 936
-Take: 939 - 1107
-IdleDog: 1113 - 1312
-TalkDog:1315 - 1474
