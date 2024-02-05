@@ -1,0 +1,13 @@
+Sitting Idle (0 - 101)
+
+Sitting Talk (106 - 309)
+
+Idle (315 - 512)
+
+Talk (516 - 641)
+
+Walk (643 - 666)
+
+Run (668 - 686)
+
+Using Key (688 - 808)
