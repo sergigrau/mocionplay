@@ -1,5 +1,0 @@
-Este Unity package requiere la instalación del asset:
-
-Visual Effect Graph
-
-La escena se encuentra en la carpeta Scenes, y está utilizando la versión 14.0.10 de Visual Effect Graph (se puede instalar desde Package Manager)

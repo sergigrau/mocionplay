@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using SimpleInputNamespace;
+using Unity.Burst.Intrinsics;
 using UnityEngine;
 
 public class PlayerMotion : MonoBehaviour
@@ -8,7 +10,7 @@ public class PlayerMotion : MonoBehaviour
     public Vector3 _input;
     [SerializeField] private Rigidbody _rb;
     
-    private float speed = 0.17f;
+    private float speed = 0.1f;
     [SerializeField] float isometricAngle = -45f;
     public float currentAngle;
     [SerializeField] GameObject playermodel;
@@ -17,6 +19,9 @@ public class PlayerMotion : MonoBehaviour
     [SerializeField] private FixedJoystick _joystick;
 
     public bool canMove = true;
+    private bool moving = false;
+
+    private Animator animator;
     
     private void GatherInput()
     {
@@ -29,8 +34,17 @@ public class PlayerMotion : MonoBehaviour
 
     private void Move(Vector3 skewedInput)
     {
-        float a = speed*Time.deltaTime;
-        Vector3 movement = new Vector3(skewedInput.x*speed, skewedInput.y*speed, skewedInput.z*speed);
+        //Vector3 movement = new Vector3(skewedInput.x*speed, skewedInput.y*speed, skewedInput.z*speed);
+        float totalMovement = Math.Abs(skewedInput.x) + Math.Abs(skewedInput.z);
+        float x = Math.Abs(skewedInput.x) / totalMovement;
+        float z = Math.Abs(skewedInput.z) / totalMovement;
+        x *= speed;
+        z *= speed;
+        x = (skewedInput.x > 0) ? x : -x;
+        z = (skewedInput.z > 0) ? z: -z;
+        
+        Vector3 movement = new Vector3((float)Math.Round(x,2), 0, (float)Math.Round(z,2));
+        Debug.Log(movement);
         _rb.MovePosition(transform.position + movement);
     }
 
@@ -46,15 +60,24 @@ public class PlayerMotion : MonoBehaviour
             
             if (canMove)
             {
-                
-                playermodel.transform.rotation = rot;
-                playermodel2.transform.rotation = rot;
+                playermodel.transform.LookAt(playermodel.transform.position + new Vector3(skewedInput.x, 0, skewedInput.z));
+                playermodel2.transform.LookAt(playermodel2.transform.position + new Vector3(skewedInput.x, 0, skewedInput.z));
                 
                 if (!iswall)
                 {
+                    if (!moving)
+                    {
+                        moving = true;
+                        swapAnim();
+                    }
                     Move(skewedInput);
                 }
             }
+        }
+        else if (moving)
+        {
+            moving = false;
+            swapAnim();   
         }
     }
 
@@ -66,11 +89,23 @@ public class PlayerMotion : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        animator = playermodel.GetComponent<Animator>();
+        Debug.Log(animator.GetParameter(0).name);
         currentAngle = isometricAngle;
         transform.Rotate(0, currentAngle, 0, Space.Self);
 
     }
-
+    void swapAnim()
+    {
+        if (moving)
+        {
+            animator.SetTrigger("walk");
+        }   
+        else
+        {
+            animator.SetTrigger("idle");
+        }
+    }
     public void rotateCamera()
     {
         if (Input.GetKey("o"))

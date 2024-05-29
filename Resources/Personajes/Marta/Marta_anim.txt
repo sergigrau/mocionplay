@@ -1,4 +1,0 @@
-Marta Idle	 [ 1 - 176 ]
-Marta PickUp 	 [ 179 - 464 ]
-Marta Talking   [ 467 - 620 ]
-Marta Walk      [ 623 - 653 ]

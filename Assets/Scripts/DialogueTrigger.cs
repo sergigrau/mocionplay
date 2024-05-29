@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+//https://www.youtube.com/watch?v=BEaOHWkZhtE
+
 public class DialogueTrigger : MonoBehaviour
 {
     [SerializeField] private List<dialogueString> dialogueStrings = new List<dialogueString>();

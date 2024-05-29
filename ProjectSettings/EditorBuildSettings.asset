@@ -17,4 +17,23 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Observatorio.unity
     guid: 9498b4d7bcf197544b3bcdd0fc3b7938
-  m_configObjects: {}
+  - enabled: 1
+    path: Assets/Scenes/Biblioteca.unity
+    guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/Estacio de Tren.unity
+    guid: 12d38e43648012e4fa01303f27d1808c
+  - enabled: 1
+    path: Assets/Scenes/Iglesia.unity
+    guid: 16e62fd75d844794ba64677afecd2433
+  - enabled: 1
+    path: Assets/Scenes/ONG.unity
+    guid: de456053663e0f746b8ce2cd81ad1273
+  - enabled: 1
+    path: Assets/Scenes/SampleScene.unity
+    guid: 647fc5851d3d97347a557a85f65a3cd6
+  m_configObjects:
+    com.unity.adaptiveperformance.google.android.provider_settings: {fileID: 11400000, guid: 20a06d5a2dd90713ca748635cb8d9306, type: 2}
+    com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: f6c43a07ccb48069b9616bf8715024d2, type: 2}
+    com.unity.adaptiveperformance.samsung.android.provider_settings: {fileID: 11400000, guid: 2799f60f7d8c690c59d50d6da8f9d04b, type: 2}
+    com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: 3fd4598b125bbd5c89134099545b5726, type: 2}

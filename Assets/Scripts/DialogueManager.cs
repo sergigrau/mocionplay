@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+//https://www.youtube.com/watch?v=BEaOHWkZhtE
 public class DialogueManager : MonoBehaviour
 {
     [SerializeField] private GameObject dialogueParent;
@@ -140,9 +141,9 @@ public class DialogueManager : MonoBehaviour
 
      private void ClickButton()
      {
-        /*ChangeAspectButtons(false, true, 0, 1, Vector3.zero, new Vector3(1, 3.2f, 1));
+        ChangeAspectButtons(false, true, 0, 1, Vector3.zero, new Vector3(1, 3.2f, 1));
         dialogueParent.GetComponent<Fading>().hide();
-        thirdPersonController.enabled = true;*/
+        thirdPersonController.enabled = true;
         //Debug.Log(nextDialogBUttonClicked);
         nextDialogBUttonClicked = true;
     }

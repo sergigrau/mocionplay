@@ -1,55 +1,52 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class DoorManager : MonoBehaviour
 {
-    [SerializeField] public string currentscene;
-    [SerializeField] public string objective;
-    [SerializeField] public Vector3 exit;
-    [SerializeField] public PlayerMotion pl;
-    [SerializeField] Fading fade;
-
+    [SerializeField] private string objective;
+    [SerializeField] private Vector3 exit;
+    [SerializeField] private PlayerMotion pl;
+    [SerializeField] private Fading fade;
+    [SerializeField] private AudioClip doorOpeningSound;
+    
     private float curr;
     private bool trans = false;
 
-    public void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.CompareTag("Player"))
         {
-            
-            curr = 0.0f;
             trans = true;
             pl.setMove(false);
-            fade.show();
+            if (fade != null) fade.show();
         }
+    }
+    
+    private void PlayDoorOpeningSound()
+    {
+        // AudioSource associat amb l'objecte 
+        AudioSource audioSource = GameObject.Find("Audio Source").GetComponent<AudioSource>();
         
+        // Reproduir el so
+        audioSource.PlayOneShot(doorOpeningSound, 0.7F);
     }
 
-    public void Update()
+    private void Update()
     {
         if (trans)
         {
             curr += Time.deltaTime;
             if (curr > 1)
             {
-                SceneManager.LoadScene(objective);
-                if (exit.magnitude != 0)
+                var scene = SceneManager.LoadSceneAsync(objective);
+                scene.completed += (operation =>
                 {
                     GameObject.FindWithTag("Player").transform.position = exit;
-                }
-                SceneManager.UnloadSceneAsync(currentscene);
+                    PlayDoorOpeningSound(); // Reproduir so
+                });
+                trans = false;
             }
         }
     }
 }
-
-
-
-
-
-
-
