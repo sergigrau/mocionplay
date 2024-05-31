@@ -1,0 +1,7 @@
+idle animation ( frame 0 - 251)
+
+walk animation ( frame 261 - 285)
+
+laught animation ( frame 297 - 532)
+
+talk animation ( frame 548 - 743)
